@@ -12,19 +12,20 @@ class Label(Enum):
 class Stance(Enum):
     FOR = 'For'
     AGAINST = 'Against' # TODO need to confirm
+    NONE = None
 
 class arg_node:
-    def __init__(self, adu_id, adu, label, stance=None):
+    def __init__(self, adu_id, adu, label, stance=Stance(None)):
         self.id = adu_id
         self.adu = adu
         self.label = label
         self.stance = stance
 
     def __str__(self):
-        return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label, self.stance, self.adu)
+        return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
 
     def __repr__(self):
-        return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label, self.stance, self.adu)
+        return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
 
 class relation_edge:
     def __init__(self, start, end, relation):

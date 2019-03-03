@@ -2,14 +2,10 @@ import sys
 import re
 from arg_graph import *
 
-def main(argc, argv):
-    if argc != 2:
-        sys.stderr.write('usage: {} <filename>\n'.format(argv[0]))
-        return 1
+def generate_edges(filename):
 
     nodes = {}
     edges = {}
-    filename = argv[1]
     annotation_file = open(filename, 'r')
     for line in annotation_file:
         line = line.rstrip('\n')
@@ -53,13 +49,14 @@ def main(argc, argv):
 
             nodes[adu_id].stance= stance 
 
-            
-    #print(nodes)
+    #print('{')
+    #for n in nodes.values():
+    #    print (n)
+    #print('}')
     #print('\n\n\n\n')
-    print(edges)
+    #print(edges)
     
     annotation_file.close()
 
+    return edges
 
-if __name__ == "__main__":
-    main(len(sys.argv), sys.argv)
