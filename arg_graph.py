@@ -25,14 +25,15 @@ class arg_node:
         return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
 
     def __repr__(self):
-        return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
+        #return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
+        return self.id
 
 class relation_edge:
     def __init__(self, start, end, relation):
         #self.start = arg_node(start_adu, start_label)
         #self.end = arg_node(end_adu, end_label)
         self.start = start
-        self.end = start
+        self.end = end
         self.relation = relation
 
 
@@ -41,3 +42,16 @@ class relation_edge:
     
     def __repr__(self):
         return '{}--{}--{}'.format(self.start.id, self.relation.name, self.end.id)
+
+def to_dict_of_dicts(edges):
+    dd = {}
+    for edge in edges:
+        start = edge.start
+        end = edge.end
+        
+
+        dd[start] = {end:{'weight':1}}
+
+
+    return dd
+
