@@ -35,6 +35,7 @@ class relation_edge:
         self.end = start
         self.relation = relation
 
+
     def __str__(self):
         return '{}--{}--{}'.format(self.start.id, self.relation.name, self.end.id)
     
