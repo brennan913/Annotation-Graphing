@@ -10,8 +10,22 @@ import networkx.drawing
 from ann_to_graph import *
 
 def main(argc, argv):
-    test1(argc, argv)
+    test4(argc, argv)
     #test3()
+
+def test4(argc, argv):
+    if argc != 2:
+        sys.stderr.write('usage: {} <filename>\n'.format(argv[0]))
+        return 1
+    
+    # parse file into graph
+    edges = generate_edges(argv[1])
+    dod = to_dict_of_dicts(edges)
+
+    plt.ioff()
+    G = nx.DiGraph(dod)
+    nx.draw(G, with_labels=True, font_weight='bold', node_size=3000, node_color='beige')
+    plt.show()
 
 def test2():
     plt.ioff()
@@ -35,8 +49,9 @@ def test1(argc, argv):
         sys.stderr.write('usage: {} <filename>\n'.format(argv[0]))
         return 1
     
-    print()
     edges = generate_edges(argv[1])
+    print()
+    print(edges)
     print()
 
 

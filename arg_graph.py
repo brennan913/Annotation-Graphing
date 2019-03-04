@@ -23,7 +23,7 @@ class arg_node:
 
     def __str__(self):
         return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
-
+        #return self.id
     def __repr__(self):
         #return '\n\nid:{}\nlabel:{}\nstance:{}\nadu:[{}]'.format(self.id, self.label.name, self.stance.name, self.adu)
         return self.id

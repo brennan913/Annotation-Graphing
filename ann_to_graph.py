@@ -13,7 +13,7 @@ def generate_edges(filename):
         # pattern one: r'T\d: indicates argument nodes
         # example input:
         # 'T3      Premise 11 54   Olympic events are rooted in old traditions'
-        # TODO make_arg_node(str) -> arg_node
+        # TODO wrap in function ala make_arg_node(str) -> arg_node
         if line[0] == 'T':
             line = line.split('\t') # ['T3', 'Premise 11 54', 'Olympic events are rooted in old traditions']
             adu_id = line[0] # 'T3'
@@ -25,7 +25,7 @@ def generate_edges(filename):
         # pattern two: r'R\d: indicates node relations
         # example input:
         # 'R1      supports Arg1:T3 Arg2:T2'
-        # TODO make_relation_edge(str) -> relation_edge
+        # TODO wrap this in a function ala make_relation_edge(str) -> relation_edge
         elif line[0] == 'R':
             line = line.split('\t') # ['R1', 'supports Arg1:T3 Arg2:T2']
             relation_id = line[0] # 'R1'
@@ -46,13 +46,6 @@ def generate_edges(filename):
             stance = Stance(stance_details[2]) # 'For'
 
             nodes[adu_id].stance= stance 
-
-    #print('{')
-    #for n in nodes.values():
-    #    print (n)
-    #print('}')
-    #print('\n\n\n\n')
-    #print(edges)
     
     annotation_file.close()
     return list(edges.values())
