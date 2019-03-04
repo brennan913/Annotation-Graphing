@@ -24,7 +24,8 @@ def test4(argc, argv):
 
     plt.ioff()
     G = nx.DiGraph(dod)
-    nx.draw(G, with_labels=True, font_weight='bold', node_size=3000, node_color='beige')
+    nx.draw(G, with_labels=True, font_weight='bold', font_size=5, node_size=3000, node_color='beige')
+    #nx.draw_networkx_edge_labels(G, )
     plt.show()
 
 def test2():
