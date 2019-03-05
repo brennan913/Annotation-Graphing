@@ -28,8 +28,8 @@ class arg_node:
 
             representation += ('\nstance:{}'.format(self.stance.name))
 
-        return representation
-        #return representation + '\nadu:[{}]'.format(self.adu)
+        #return representation
+        return representation + '\nadu:[{}]'.format(self.adu)
         
         
     def __repr__(self):
@@ -38,8 +38,6 @@ class arg_node:
 
 class relation_edge:
     def __init__(self, start, end, relation):
-        #self.start = arg_node(start_adu, start_label)
-        #self.end = arg_node(end_adu, end_label)
         self.start = start
         self.end = end
         self.relation = relation
@@ -56,7 +54,6 @@ def to_dict_of_dicts(edges):
     for edge in edges:
         start = edge.start
         end = edge.end
-        
 
         dd[start] = {end:{'weight':1}}
 
