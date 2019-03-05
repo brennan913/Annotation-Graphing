@@ -24,8 +24,14 @@ def test4(argc, argv):
 
     plt.ioff()
     G = nx.DiGraph(dod)
-    nx.draw(G, with_labels=True, font_weight='bold', font_size=5, node_size=3000, node_color='beige')
-    #nx.draw_networkx_edge_labels(G, )
+    pos = nx.spring_layout(G)
+    nx.draw(G, pos=pos, with_labels=True, font_weight='bold', font_size=7, node_size=3000, node_color='beige', labels={n:n for n in G.nodes()})
+    labels = {}
+    for edge in edges:
+        labels[(edge.start, edge.end)]=edge.relation.name
+
+    nx.draw_networkx_edge_labels(G, pos=pos, edge_labels=labels, font_color='xkcd:blue gray')
+    plt.axis('on')
     plt.show()
 
 def test2():

@@ -22,13 +22,14 @@ class arg_node:
         self.stance = stance
 
     def __str__(self):
-        representation = '\n\nid:{}\nlabel:{}'.format(self.id, self.label.name)
+        representation = '\n{}\n{}'.format(self.id, self.label.name)
         
         if self.stance != Stance.NONE:
 
             representation += ('\nstance:{}'.format(self.stance.name))
 
-        return representation + '\nadu:[{}]'.format(self.adu)
+        return representation
+        #return representation + '\nadu:[{}]'.format(self.adu)
         
         
     def __repr__(self):
